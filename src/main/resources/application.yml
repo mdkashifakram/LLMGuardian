@@ -1,0 +1,209 @@
+# LLM Guardian - Application Configuration
+# Security + Optimization Modules
+
+spring:
+  application:
+    name: llmguardian
+  
+  # Database Configuration (MySQL)
+  datasource:
+    url: jdbc:mysql://localhost:3306/llmguardian?createDatabaseIfNotExist=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Thermo@25
+  
+  # JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  # ========================================
+  # ASYNC CONFIGURATION (for AuditLogger)
+  # ========================================
+  task:
+    execution:
+      pool:
+        core-size: 2
+        max-size: 5
+        queue-capacity: 100
+      thread-name-prefix: audit-
+
+# ========================================
+# LLM GUARDIAN - PII SECURITY CONFIGURATION
+# ========================================
+
+llmguardian:
+  pii:
+    # Detection Settings
+    detection:
+      enabled: true
+      
+      # Enable/Disable specific patterns
+      patterns:
+        EMAIL: true
+        PHONE: true
+        CREDIT_CARD: true
+        API_KEY: true
+        SSN: false              # US Social Security (enable for US deployments)
+        AADHAAR: true            # India Aadhaar (enable for India deployments)
+        PAN: true                # India PAN (enable for India deployments)
+        NI: false                # UK National Insurance
+        IP_ADDRESS: false        # Often needed in logs, disabled by default
+      
+      # Custom patterns (optional)
+      custom-patterns:
+        - name: EMPLOYEE_ID
+          regex: "\\bEMP[0-9]{6}\\b"
+          region: Custom
+          enabled: true
+    
+    # Redaction Settings
+    redaction:
+      token-generation: RANDOM    # RANDOM or SEQUENTIAL
+      token-length: 6              # Length of random token (6-12 recommended)
+    
+    # Audit Settings
+    audit:
+      enabled: true
+      level: STANDARD              # NONE, MINIMAL, STANDARD, DETAILED
+      retention-days: 90           # Auto-delete logs older than this
+
+  # ========================================
+  # OPTIMIZATION CONFIGURATION
+  # ========================================
+  
+  optimization:
+    enabled: true
+    target-reduction: 30          # Target % reduction (20-40%)
+    min-prompt-length: 50         # Don't optimize if shorter than this
+    
+    # Optimization Strategies
+    strategies:
+      remove-redundancy: true
+      compress-whitespace: true
+      simplify-language: true
+      preserve-technical-terms: true
+      remove-filler-words: true
+    
+    # Stopwords/Filler Words
+    stopwords:
+      enabled: true
+      custom-words:
+        - basically
+        - actually
+        - literally
+        - honestly
+        - frankly
+        - really
+        - very
+        - quite
+        - just
+        - simply
+        - merely
+        - perhaps
+        - maybe
+        - possibly
+        - probably
+        - essentially
+
+# ========================================
+# LOGGING CONFIGURATION
+# ========================================
+
+logging:
+  level:
+    root: INFO
+    io.com.llmguardian: DEBUG
+    io.com.llmguardian.security: DEBUG
+    io.com.llmguardian.optimization: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# ========================================
+# ACTUATOR (Health checks, metrics)
+# ========================================
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+---
+
+# ========================================
+# PRODUCTION PROFILE
+# ========================================
+
+spring:
+  config:
+    activate:
+      on-profile: production
+  
+  # PostgreSQL Configuration for Production
+  datasource:
+    url: jdbc:postgresql://localhost:5432/llmguardian
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate          # Never auto-create in production!
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+llmguardian:
+  pii:
+    audit:
+      level: STANDARD              # Don't use DETAILED in production
+      retention-days: 365          # Keep longer for compliance
+  
+  optimization:
+    enabled: true
+    target-reduction: 25           # Conservative in production
+
+logging:
+  level:
+    root: WARN
+    io.com.llmguardian: INFO
+    io.com.llmguardian.security: INFO
+    io.com.llmguardian.optimization: INFO
+
+---
+
+# ========================================
+# DEVELOPMENT PROFILE
+# ========================================
+
+spring:
+  config:
+    activate:
+      on-profile: development
+
+llmguardian:
+  pii:
+    redaction:
+      token-generation: SEQUENTIAL  # Easier to debug
+    audit:
+      level: DETAILED               # Full debugging info
+  
+  optimization:
+    enabled: true
+    target-reduction: 40            # Aggressive in dev for testing
+
+logging:
+  level:
+    io.com.llmguardian: TRACE
+    io.com.llmguardian.security: TRACE
+    io.com.llmguardian.optimization: TRACE
