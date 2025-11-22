@@ -111,6 +111,15 @@ llmguardian:
         - probably
         - essentially
 
+  # ========================================
+  # PROVIDER CONFIGURATION
+  # ========================================
+  provider:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      timeout-seconds: 60
+      default-model: gpt-4o-mini
+
 # ========================================
 # LOGGING CONFIGURATION
 # ========================================
