@@ -20,4 +20,16 @@ public abstract class BaseIntegrationTest {
 
     @MockBean
     protected LLMProvider llmProvider;
+
+    @Autowired
+    protected io.com.llmguardian.security.repository.PIIAuditRepository auditRepository;
+
+    @MockBean
+    protected io.com.llmguardian.cache.L2CacheService l2CacheService;
+
+    @MockBean
+    protected org.springframework.data.redis.connection.RedisConnectionFactory redisConnectionFactory;
+
+    @MockBean
+    protected org.springframework.data.redis.connection.ReactiveRedisConnectionFactory reactiveRedisConnectionFactory;
 }

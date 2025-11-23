@@ -1,0 +1,461 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< io.com:llmguardian >-------------------------
+[INFO] Building llmguardian 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ llmguardian ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ llmguardian ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ llmguardian ---
+[INFO] skip non existing resourceDirectory C:\Users\kashi\OneDrive\Desktop\Full_StackProjects\llmguardian\llmguardian\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ llmguardian ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ llmguardian ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.com.llmguardian.api.controller.CompletionControllerE2ETest
+02:09:25.228 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.com.llmguardian.api.controller.CompletionControllerE2ETest]: CompletionControllerE2ETest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:09:25.849 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.com.llmguardian.LlmguardianApplication for test class io.com.llmguardian.api.controller.CompletionControllerE2ETest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-24 02:09:27 - Starting CompletionControllerE2ETest using Java 21.0.5 with PID 11968 (started by kashi in C:\Users\kashi\OneDrive\Desktop\Full_StackProjects\llmguardian\llmguardian)
+2025-11-24 02:09:27 - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-24 02:09:27 - No active profile set, falling back to 1 default profile: "default"
+2025-11-24 02:09:29 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-11-24 02:09:29 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-24 02:09:30 - Finished Spring Data repository scanning in 393 ms. Found 1 JPA repository interface.
+2025-11-24 02:09:30 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-11-24 02:09:30 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-11-24 02:09:30 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface io.com.llmguardian.security.repository.PIIAuditRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-11-24 02:09:30 - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-11-24 02:09:36 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-24 02:09:36 - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-24 02:09:36 - HHH000026: Second-level cache disabled
+2025-11-24 02:09:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-24 02:09:37 - HikariPool-1 - Starting...
+2025-11-24 02:09:38 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2db6ba81
+2025-11-24 02:09:38 - HikariPool-1 - Start completed.
+2025-11-24 02:09:38 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-24 02:09:38 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.20
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-24 02:09:41 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table pii_audit 
+       modify column pii_type enum ('AADHAAR_INDIA','API_KEY','CREDIT_CARD','EMAIL','IP_ADDRESS','NATIONAL_INSURANCE_UK','PAN_INDIA','PHONE_INTERNATIONAL','SSN_US') not null
+2025-11-24 02:09:41 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-24 02:09:42 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-24 02:09:44 - Registered model: gpt-4o-mini
+2025-11-24 02:09:44 - Registered model: gpt-4o
+2025-11-24 02:09:44 - Registered model: gpt-3.5-turbo
+2025-11-24 02:09:44 - Registered default models: gpt-4o-mini, gpt-4o, gpt-3.5-turbo
+2025-11-24 02:09:44 - ModelRegistry initialized with 3 models
+2025-11-24 02:09:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-24 02:09:46 - Initializing Spring TestDispatcherServlet ''
+2025-11-24 02:09:46 - Initializing Servlet ''
+2025-11-24 02:09:46 - Completed initialization in 0 ms
+2025-11-24 02:09:46 - Started CompletionControllerE2ETest in 20.483 seconds (process running for 23.7)
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.action,
+        pe1_0.created_at,
+        pe1_0.original_length,
+        pe1_0.pii_type,
+        pe1_0.position_end,
+        pe1_0.position_start,
+        pe1_0.request_id,
+        pe1_0.token 
+    from
+        pii_audit pe1_0
+2025-11-24 02:09:47 - Received completion request: CompletionRequest{query='Contact me at test@example.com...', maxTokens=100, model=null, optimization=true, cache=true}
+2025-11-24 02:09:47 - === Starting request processing: 5f7baa17-8011-42fc-8667-c9711fc8d990 ===
+2025-11-24 02:09:47 - [Stage 1] PII Detection & Redaction
+2025-11-24 02:09:47 - Starting PII detection on text of length: 30
+2025-11-24 02:09:47 - Scanning with 6 enabled patterns: [CREDIT_CARD, AADHAAR_INDIA, PHONE_INTERNATIONAL, PAN_INDIA, API_KEY, EMAIL]
+2025-11-24 02:09:47 - PII detection completed: found 0 matches in 0ms
+2025-11-24 02:09:47 - No PII detected
+2025-11-24 02:09:47 - [Stage 1] Complete: 7ms
+2025-11-24 02:09:47 - [Stage 2] Prompt Optimization
+2025-11-24 02:09:47 - Prompt too short (30 chars), skipping optimization
+2025-11-24 02:09:47 - Optimization: 7 ΓåÆ 7 tokens ({:.1f}% reduction)
+2025-11-24 02:09:47 - [Stage 2] Complete: 8ms
+2025-11-24 02:09:47 - [Stage 3] Complexity Analysis
+2025-11-24 02:09:47 - Analyzing complexity for prompt of length: 30
+2025-11-24 02:09:47 - Complexity analysis complete: SIMPLE (4ms)
+2025-11-24 02:09:47 - Complexity: SIMPLE (score: 5)
+2025-11-24 02:09:47 - [Stage 3] Complete: 4ms
+2025-11-24 02:09:47 - [Stage 4] Model Routing
+2025-11-24 02:09:47 - Routing request with strategy: COMPLEXITY_BASED, complexity: SIMPLE
+2025-11-24 02:09:47 - Routing decision: gpt-4o-mini (6ms)
+2025-11-24 02:09:47 - Routing: selected gpt-4o-mini (Complexity score 5 (SIMPLE) ΓåÆ selected GPT-4o Mini for optimal cost/quality balance)
+2025-11-24 02:09:47 - [Stage 4] Complete: 9ms
+2025-11-24 02:09:47 - [Stage 5] Cache Check
+2025-11-24 02:09:47 - Cache MISS: llm:s380ljjH_3EL (6ms)
+2025-11-24 02:09:47 - Cache MISS - calling LLM provider
+2025-11-24 02:09:47 - [Stage 5] Complete (cache miss): 8ms
+2025-11-24 02:09:47 - [Stage 6] LLM Provider Call
+2025-11-24 02:09:47 - LLM response: 0 tokens in 0ms, cost: $null
+2025-11-24 02:09:47 - [Stage 6] Complete: 0ms
+2025-11-24 02:09:47 - [Stage 7] Cache Store
+2025-11-24 02:09:47 - Cache PUT (L1+L2): llm:s380ljjH_3EL
+2025-11-24 02:09:47 - [Stage 7] Complete: 0ms
+2025-11-24 02:09:47 - [Stage 8] PII Restoration
+2025-11-24 02:09:47 - [Stage 8] Complete: 0ms
+2025-11-24 02:09:47 - [Stage 9] Audit Logging
+2025-11-24 02:09:47 - [Stage 9] Complete: 0ms
+2025-11-24 02:09:47 - === Request processing complete: 5f7baa17-8011-42fc-8667-c9711fc8d990 (36 ms) ===
+2025-11-24 02:09:47 - Summary: cached=false, pii=false, optimized=7ΓåÆ7 tokens, complexity=SIMPLE, model=gpt-4o-mini
+2025-11-24 02:09:47 - Completion successful: requestId=5f7baa17-8011-42fc-8667-c9711fc8d990
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/completions
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"208"]
+             Body = {"query":"Contact me at test@example.com","maxTokens":100,"temperature":null,"topP":null,"model":null,"routingStrategy":null,"enableOptimization":true,"enableCache":true,"valid":true,"effectiveMaxTokens":100}
+    Session Attrs = {}
+
+Handler:
+             Type = io.com.llmguardian.api.controller.CompletionController
+           Method = io.com.llmguardian.api.controller.CompletionController#complete(CompletionRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"requestId":"5f7baa17-8011-42fc-8667-c9711fc8d990","text":"Response to redacted query.","success":true,"timestamp":"2025-11-23T20:39:47.824835500Z","metadata":{"modelUsed":"gpt-4o-mini","complexityLevel":"SIMPLE","inputTokens":0,"outputTokens":0,"totalTokens":0,"latencyMs":36,"fromCache":false,"optimizationApplied":false,"tokensSaved":0,"reductionPercentage":0.0,"piiDetected":false,"piiCount":0}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.action,
+        pe1_0.created_at,
+        pe1_0.original_length,
+        pe1_0.pii_type,
+        pe1_0.position_end,
+        pe1_0.position_start,
+        pe1_0.request_id,
+        pe1_0.token 
+    from
+        pii_audit pe1_0
+2025-11-24 02:09:48 - Received completion request: CompletionRequest{query='Hello, world!...', maxTokens=100, model=null, optimization=true, cache=true}
+2025-11-24 02:09:48 - === Starting request processing: 81f187b7-d5fe-4881-823f-6d72ef09b922 ===
+2025-11-24 02:09:48 - [Stage 1] PII Detection & Redaction
+2025-11-24 02:09:48 - Starting PII detection on text of length: 13
+2025-11-24 02:09:48 - Scanning with 6 enabled patterns: [CREDIT_CARD, AADHAAR_INDIA, PHONE_INTERNATIONAL, PAN_INDIA, API_KEY, EMAIL]
+2025-11-24 02:09:48 - PII detection completed: found 0 matches in 0ms
+2025-11-24 02:09:48 - No PII detected
+2025-11-24 02:09:48 - [Stage 1] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 2] Prompt Optimization
+2025-11-24 02:09:48 - Prompt too short (13 chars), skipping optimization
+2025-11-24 02:09:48 - Optimization: 3 ΓåÆ 3 tokens ({:.1f}% reduction)
+2025-11-24 02:09:48 - [Stage 2] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 3] Complexity Analysis
+2025-11-24 02:09:48 - Analyzing complexity for prompt of length: 13
+2025-11-24 02:09:48 - Complexity analysis complete: SIMPLE (0ms)
+2025-11-24 02:09:48 - Complexity: SIMPLE (score: 5)
+2025-11-24 02:09:48 - [Stage 3] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 4] Model Routing
+2025-11-24 02:09:48 - Routing request with strategy: COMPLEXITY_BASED, complexity: SIMPLE
+2025-11-24 02:09:48 - Routing decision: gpt-4o-mini (0ms)
+2025-11-24 02:09:48 - Routing: selected gpt-4o-mini (Complexity score 5 (SIMPLE) ΓåÆ selected GPT-4o Mini for optimal cost/quality balance)
+2025-11-24 02:09:48 - [Stage 4] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 5] Cache Check
+2025-11-24 02:09:48 - Cache MISS: llm:ai3E4eJEfudT (0ms)
+2025-11-24 02:09:48 - Cache MISS - calling LLM provider
+2025-11-24 02:09:48 - [Stage 5] Complete (cache miss): 0ms
+2025-11-24 02:09:48 - [Stage 6] LLM Provider Call
+2025-11-24 02:09:48 - LLM response: 15 tokens in 100ms, cost: $1.0E-4
+2025-11-24 02:09:48 - [Stage 6] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 7] Cache Store
+2025-11-24 02:09:48 - Cache PUT (L1+L2): llm:ai3E4eJEfudT
+2025-11-24 02:09:48 - [Stage 7] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 8] PII Restoration
+2025-11-24 02:09:48 - [Stage 8] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 9] Audit Logging
+2025-11-24 02:09:48 - [Stage 9] Complete: 0ms
+2025-11-24 02:09:48 - === Request processing complete: 81f187b7-d5fe-4881-823f-6d72ef09b922 (0 ms) ===
+2025-11-24 02:09:48 - Summary: cached=false, pii=false, optimized=3ΓåÆ3 tokens, complexity=SIMPLE, model=gpt-4o-mini
+2025-11-24 02:09:48 - Completion successful: requestId=81f187b7-d5fe-4881-823f-6d72ef09b922
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.action,
+        pe1_0.created_at,
+        pe1_0.original_length,
+        pe1_0.pii_type,
+        pe1_0.position_end,
+        pe1_0.position_start,
+        pe1_0.request_id,
+        pe1_0.token 
+    from
+        pii_audit pe1_0
+2025-11-24 02:09:48 - Validation error: query: Query cannot be empty
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.action,
+        pe1_0.created_at,
+        pe1_0.original_length,
+        pe1_0.pii_type,
+        pe1_0.position_end,
+        pe1_0.position_start,
+        pe1_0.request_id,
+        pe1_0.token 
+    from
+        pii_audit pe1_0
+2025-11-24 02:09:48 - Received completion request: CompletionRequest{query='Basically, I just want to say hello actually....', maxTokens=100, model=null, optimization=true, cache=true}
+2025-11-24 02:09:48 - === Starting request processing: ff30bb85-e7a3-43d1-a266-c37f9a8a24c5 ===
+2025-11-24 02:09:48 - [Stage 1] PII Detection & Redaction
+2025-11-24 02:09:48 - Starting PII detection on text of length: 45
+2025-11-24 02:09:48 - Scanning with 6 enabled patterns: [CREDIT_CARD, AADHAAR_INDIA, PHONE_INTERNATIONAL, PAN_INDIA, API_KEY, EMAIL]
+2025-11-24 02:09:48 - PII detection completed: found 0 matches in 0ms
+2025-11-24 02:09:48 - No PII detected
+2025-11-24 02:09:48 - [Stage 1] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 2] Prompt Optimization
+2025-11-24 02:09:48 - Prompt too short (45 chars), skipping optimization
+2025-11-24 02:09:48 - Optimization: 11 ΓåÆ 11 tokens ({:.1f}% reduction)
+2025-11-24 02:09:48 - [Stage 2] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 3] Complexity Analysis
+2025-11-24 02:09:48 - Analyzing complexity for prompt of length: 45
+2025-11-24 02:09:48 - Complexity analysis complete: SIMPLE (0ms)
+2025-11-24 02:09:48 - Complexity: SIMPLE (score: 5)
+2025-11-24 02:09:48 - [Stage 3] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 4] Model Routing
+2025-11-24 02:09:48 - Routing request with strategy: COMPLEXITY_BASED, complexity: SIMPLE
+2025-11-24 02:09:48 - Routing decision: gpt-4o-mini (0ms)
+2025-11-24 02:09:48 - Routing: selected gpt-4o-mini (Complexity score 5 (SIMPLE) ΓåÆ selected GPT-4o Mini for optimal cost/quality balance)
+2025-11-24 02:09:48 - [Stage 4] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 5] Cache Check
+2025-11-24 02:09:48 - Cache MISS: llm:GSlXTj0d8M2b (0ms)
+2025-11-24 02:09:48 - Cache MISS - calling LLM provider
+2025-11-24 02:09:48 - [Stage 5] Complete (cache miss): 0ms
+2025-11-24 02:09:48 - [Stage 6] LLM Provider Call
+2025-11-24 02:09:48 - LLM response: 0 tokens in 0ms, cost: $null
+2025-11-24 02:09:48 - [Stage 6] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 7] Cache Store
+2025-11-24 02:09:48 - Cache PUT (L1+L2): llm:GSlXTj0d8M2b
+2025-11-24 02:09:48 - [Stage 7] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 8] PII Restoration
+2025-11-24 02:09:48 - [Stage 8] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 9] Audit Logging
+2025-11-24 02:09:48 - [Stage 9] Complete: 0ms
+2025-11-24 02:09:48 - === Request processing complete: ff30bb85-e7a3-43d1-a266-c37f9a8a24c5 (0 ms) ===
+2025-11-24 02:09:48 - Summary: cached=false, pii=false, optimized=11ΓåÆ11 tokens, complexity=SIMPLE, model=gpt-4o-mini
+2025-11-24 02:09:48 - Completion successful: requestId=ff30bb85-e7a3-43d1-a266-c37f9a8a24c5
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/completions
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"223"]
+             Body = {"query":"Basically, I just want to say hello actually.","maxTokens":100,"temperature":null,"topP":null,"model":null,"routingStrategy":null,"enableOptimization":true,"enableCache":true,"valid":true,"effectiveMaxTokens":100}
+    Session Attrs = {}
+
+Handler:
+             Type = io.com.llmguardian.api.controller.CompletionController
+           Method = io.com.llmguardian.api.controller.CompletionController#complete(CompletionRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"requestId":"ff30bb85-e7a3-43d1-a266-c37f9a8a24c5","text":"Optimized response.","success":true,"timestamp":"2025-11-23T20:39:48.154020600Z","metadata":{"modelUsed":"gpt-4o-mini","complexityLevel":"SIMPLE","inputTokens":0,"outputTokens":0,"totalTokens":0,"latencyMs":0,"fromCache":false,"optimizationApplied":false,"tokensSaved":0,"reductionPercentage":0.0,"piiDetected":false,"piiCount":0}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.action,
+        pe1_0.created_at,
+        pe1_0.original_length,
+        pe1_0.pii_type,
+        pe1_0.position_end,
+        pe1_0.position_start,
+        pe1_0.request_id,
+        pe1_0.token 
+    from
+        pii_audit pe1_0
+2025-11-24 02:09:48 - Received completion request: CompletionRequest{query='Repeat this query....', maxTokens=100, model=null, optimization=true, cache=true}
+2025-11-24 02:09:48 - === Starting request processing: 3c67aaee-8f81-4df4-97aa-16b64bddd98c ===
+2025-11-24 02:09:48 - [Stage 1] PII Detection & Redaction
+2025-11-24 02:09:48 - Starting PII detection on text of length: 18
+2025-11-24 02:09:48 - Scanning with 6 enabled patterns: [CREDIT_CARD, AADHAAR_INDIA, PHONE_INTERNATIONAL, PAN_INDIA, API_KEY, EMAIL]
+2025-11-24 02:09:48 - PII detection completed: found 0 matches in 0ms
+2025-11-24 02:09:48 - No PII detected
+2025-11-24 02:09:48 - [Stage 1] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 2] Prompt Optimization
+2025-11-24 02:09:48 - Prompt too short (18 chars), skipping optimization
+2025-11-24 02:09:48 - Optimization: 4 ΓåÆ 4 tokens ({:.1f}% reduction)
+2025-11-24 02:09:48 - [Stage 2] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 3] Complexity Analysis
+2025-11-24 02:09:48 - Analyzing complexity for prompt of length: 18
+2025-11-24 02:09:48 - Complexity analysis complete: SIMPLE (0ms)
+2025-11-24 02:09:48 - Complexity: SIMPLE (score: 5)
+2025-11-24 02:09:48 - [Stage 3] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 4] Model Routing
+2025-11-24 02:09:48 - Routing request with strategy: COMPLEXITY_BASED, complexity: SIMPLE
+2025-11-24 02:09:48 - Routing decision: gpt-4o-mini (0ms)
+2025-11-24 02:09:48 - Routing: selected gpt-4o-mini (Complexity score 5 (SIMPLE) ΓåÆ selected GPT-4o Mini for optimal cost/quality balance)
+2025-11-24 02:09:48 - [Stage 4] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 5] Cache Check
+2025-11-24 02:09:48 - Cache MISS: llm:Vuimp7Adq8Cl (0ms)
+2025-11-24 02:09:48 - Cache MISS - calling LLM provider
+2025-11-24 02:09:48 - [Stage 5] Complete (cache miss): 0ms
+2025-11-24 02:09:48 - [Stage 6] LLM Provider Call
+2025-11-24 02:09:48 - LLM response: 0 tokens in 0ms, cost: $null
+2025-11-24 02:09:48 - [Stage 6] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 7] Cache Store
+2025-11-24 02:09:48 - Cache PUT (L1+L2): llm:Vuimp7Adq8Cl
+2025-11-24 02:09:48 - [Stage 7] Complete: 1ms
+2025-11-24 02:09:48 - [Stage 8] PII Restoration
+2025-11-24 02:09:48 - [Stage 8] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 9] Audit Logging
+2025-11-24 02:09:48 - [Stage 9] Complete: 0ms
+2025-11-24 02:09:48 - === Request processing complete: 3c67aaee-8f81-4df4-97aa-16b64bddd98c (11 ms) ===
+2025-11-24 02:09:48 - Summary: cached=false, pii=false, optimized=4ΓåÆ4 tokens, complexity=SIMPLE, model=gpt-4o-mini
+2025-11-24 02:09:48 - Completion successful: requestId=3c67aaee-8f81-4df4-97aa-16b64bddd98c
+2025-11-24 02:09:48 - Received completion request: CompletionRequest{query='Repeat this query....', maxTokens=100, model=null, optimization=true, cache=true}
+2025-11-24 02:09:48 - === Starting request processing: e497b7fb-7910-40bc-b59c-67cd6d85b532 ===
+2025-11-24 02:09:48 - [Stage 1] PII Detection & Redaction
+2025-11-24 02:09:48 - Starting PII detection on text of length: 18
+2025-11-24 02:09:48 - Scanning with 6 enabled patterns: [CREDIT_CARD, AADHAAR_INDIA, PHONE_INTERNATIONAL, PAN_INDIA, API_KEY, EMAIL]
+2025-11-24 02:09:48 - PII detection completed: found 0 matches in 1ms
+2025-11-24 02:09:48 - No PII detected
+2025-11-24 02:09:48 - [Stage 1] Complete: 1ms
+2025-11-24 02:09:48 - [Stage 2] Prompt Optimization
+2025-11-24 02:09:48 - Prompt too short (18 chars), skipping optimization
+2025-11-24 02:09:48 - Optimization: 4 ΓåÆ 4 tokens ({:.1f}% reduction)
+2025-11-24 02:09:48 - [Stage 2] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 3] Complexity Analysis
+2025-11-24 02:09:48 - Analyzing complexity for prompt of length: 18
+2025-11-24 02:09:48 - Complexity analysis complete: SIMPLE (0ms)
+2025-11-24 02:09:48 - Complexity: SIMPLE (score: 5)
+2025-11-24 02:09:48 - [Stage 3] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 4] Model Routing
+2025-11-24 02:09:48 - Routing request with strategy: COMPLEXITY_BASED, complexity: SIMPLE
+2025-11-24 02:09:48 - Routing decision: gpt-4o-mini (0ms)
+2025-11-24 02:09:48 - Routing: selected gpt-4o-mini (Complexity score 5 (SIMPLE) ΓåÆ selected GPT-4o Mini for optimal cost/quality balance)
+2025-11-24 02:09:48 - [Stage 4] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 5] Cache Check
+2025-11-24 02:09:48 - Cache HIT (L1): llm:Vuimp7Adq8Cl (0ms)
+2025-11-24 02:09:48 - Cache HIT - returning cached response
+2025-11-24 02:09:48 - [Stage 5] Complete (cache hit): 0ms
+2025-11-24 02:09:48 - [Stage 8] PII Restoration
+2025-11-24 02:09:48 - [Stage 8] Complete: 0ms
+2025-11-24 02:09:48 - [Stage 9] Audit Logging
+2025-11-24 02:09:48 - [Stage 9] Complete: 0ms
+2025-11-24 02:09:48 - === Request processing complete: e497b7fb-7910-40bc-b59c-67cd6d85b532 (1 ms) ===
+2025-11-24 02:09:48 - Summary: cached=true, pii=false, optimized=4ΓåÆ4 tokens, complexity=SIMPLE, model=gpt-4o-mini
+2025-11-24 02:09:48 - Completion successful: requestId=e497b7fb-7910-40bc-b59c-67cd6d85b532
+[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 23.50 s <<< FAILURE! -- in io.com.llmguardian.api.controller.CompletionControllerE2ETest
+[ERROR] io.com.llmguardian.api.controller.CompletionControllerE2ETest.testPiiDetectionAndAuditLogging -- Time elapsed: 1.155 s <<< FAILURE!
+java.lang.AssertionError: JSON path "$.metadata.piiDetected" expected:<true> but was:<false>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:172)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at io.com.llmguardian.api.controller.CompletionControllerE2ETest.testPiiDetectionAndAuditLogging(CompletionControllerE2ETest.java:86)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] io.com.llmguardian.api.controller.CompletionControllerE2ETest.testPromptOptimization -- Time elapsed: 0.035 s <<< FAILURE!
+java.lang.AssertionError: JSON path "$.metadata.optimizationApplied" expected:<true> but was:<false>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:61)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:128)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:172)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:112)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at io.com.llmguardian.api.controller.CompletionControllerE2ETest.testPromptOptimization(CompletionControllerE2ETest.java:157)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   CompletionControllerE2ETest.testPiiDetectionAndAuditLogging:86 JSON path "$.metadata.piiDetected" expected:<true> but was:<false>
+[ERROR]   CompletionControllerE2ETest.testPromptOptimization:157 JSON path "$.metadata.optimizationApplied" expected:<true> but was:<false>
+[INFO] 
+[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.966 s
+[INFO] Finished at: 2025-11-24T02:09:48+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.4:test (default-test) on project llmguardian: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\kashi\OneDrive\Desktop\Full_StackProjects\llmguardian\llmguardian\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
